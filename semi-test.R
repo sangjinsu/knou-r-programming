@@ -34,10 +34,26 @@ grade <- rep(0, 10)
 grade
 # [1] 0 0 0 0 0 0 0 0 0 0
 
-grade <- ifelse(score >= 90, "A",
-                ifelse(score >= 80, "B",
-                       ifelse(score >= 70, "C",
-                              ifelse(score >= 60, "D", "F")
+for (i in 1:length(score)) {
+  ifelse(score[i] >= 90, grade[i] <- "A",
+         ifelse(score[i] >= 80, grade[i] <- "B",
+                ifelse(score[i] >= 70, grade[i] <- "C",
+                       ifelse(score[i] >= 60, grade[i] <- "D",
+                              grade[i] <- "F"
                        )
                 )
-)
+         )
+  )
+}
+grade
+#  [1] "B" "A" "C" "F" "A" "F" "A" "B" "B" "A"
+
+
+for (i in 2:6) {
+  print(rep(i, times = i-1))
+}
+
+
+for (i in 1:5) {
+  print(rep(i, times = i+1))
+}
