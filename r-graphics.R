@@ -49,3 +49,16 @@ with(Arthritis, rug(jitter(Age), col = 'white', quiet=T))
 # vcd 패키지를 활용한 모자이크 그림
 art <- xtabs(~Treatment+Improved, data=Arthritis, subset=Sex=="Female")
 mosaic(art)
+# 다중 산점도 
+data1 <- subset(Cars93, select=c(Min.Price, Price, Max.Price, MPG.city, MPG.highway))
+pairs(data1)
+# 그룹별 산점도(ggplot2 패키지 qplot 함수를 이용)
+qplot(Wheelbase, Width, data=Cars93, shape=Type, color=Type, facets = Origin~AirBags)
+# 나무 지도 그림 
+# vColor 에 대응되는 변수가 연속현 변수이기 때문에 type="value" 로 지정. 만약 번주형 변수라면 type="categorical"로 지정 
+library(treemap)
+data(GNI2014)
+treemap(GNI2014, index=c("continent", "iso3"), vSize="population", vColor="GNI", type="value")
+# 풍선 그림 
+# label=TRUE 라는 옵션을 선택하면 풍선 그림에 실제 값 표시 
+library(graphics)

@@ -57,3 +57,4 @@ for (i in 2:6) {
 for (i in 1:5) {
   print(rep(i, times = i+1))
 }
+
